@@ -7,55 +7,77 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900">
+
+<!-- Header -->
 <header class="sticky top-0 bg-white/80 backdrop-blur border-b">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <div class="font-extrabold text-xl">{{ AGENCY_NAME }}</div>
     <nav class="space-x-3">
       <a href="#features" class="hover:underline">Features</a>
       <a href="#pricing" class="hover:underline">Pricing</a>
-      <a href="#lead" class="hover:underline">Contact</a>
+      <a href="#demo" class="hover:underline">Book a Demo</a>
+      <a href="#faq" class="hover:underline">FAQ</a>
     </nav>
   </div>
 </header>
 
-<section class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+<!-- Hero -->
+<section class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
   <div>
-    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-      Never miss a call again.<br>
-      Your <span class="text-indigo-600">24/7 AI Receptionist</span>.
+    <h1 class="text-5xl font-extrabold leading-tight">
+      Your <span class="text-indigo-600">24/7 AI Receptionist</span><br> Never miss a client call again.
     </h1>
     <p class="mt-4 text-lg text-gray-600">
-      We answer every call, speak naturally, and book directly into your calendar.
+      We answer calls, speak naturally, and book into your calendar. Save thousands compared to a full-time hire.
     </p>
     <div class="mt-6 flex flex-wrap gap-3">
       {% if BOOK_DEMO_URL %}
-        <a href="{{ BOOK_DEMO_URL }}" class="px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Book a Demo</a>
+        <a href="{{ BOOK_DEMO_URL }}" class="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Book a Demo</a>
       {% endif %}
-      <a href="#pricing" class="px-5 py-3 rounded-xl border font-semibold hover:bg-gray-100">See Pricing</a>
+      <a href="#pricing" class="px-6 py-3 rounded-xl border font-semibold hover:bg-gray-100">See Pricing</a>
     </div>
   </div>
-  <div class="bg-white border rounded-2xl p-6 shadow-sm">
+  <div class="bg-white border rounded-2xl p-8 shadow-sm">
     <ul class="space-y-3 text-gray-700">
-      <li>✅ Natural voice conversations</li>
+      <li>✅ Natural, human-like voice</li>
       <li>✅ Live calendar booking</li>
-      <li>✅ Lead capture + email confirms</li>
+      <li>✅ Lead capture + reminders</li>
       <li>✅ 24/7 availability</li>
     </ul>
   </div>
 </section>
 
-<section id="pricing" class="max-w-6xl mx-auto px-4 py-16">
+<!-- Features -->
+<section id="features" class="bg-white border-y">
+  <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-6">
+    <div class="p-6 border rounded-2xl text-center">
+      <h3 class="font-bold text-lg">Plug & Play</h3>
+      <p class="mt-2 text-gray-600">Integrates with your website & phones in minutes.</p>
+    </div>
+    <div class="p-6 border rounded-2xl text-center">
+      <h3 class="font-bold text-lg">Calendar Sync</h3>
+      <p class="mt-2 text-gray-600">Works with Google & Outlook to book instantly.</p>
+    </div>
+    <div class="p-6 border rounded-2xl text-center">
+      <h3 class="font-bold text-lg">Affordable</h3>
+      <p class="mt-2 text-gray-600">A fraction of the cost of a full-time receptionist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="max-w-6xl mx-auto px-4 py-20">
   <h2 class="text-3xl font-extrabold text-center">Simple pricing</h2>
   <div class="mt-10 grid md:grid-cols-2 gap-6">
 
-    <!-- Monthly Plan -->
+    <!-- Monthly -->
     <div class="p-6 bg-white border rounded-2xl shadow-sm">
       <h3 class="text-xl font-bold">AI Receptionist — Monthly</h3>
       <p class="mt-2 text-gray-600">Flat monthly fee with all core features included.</p>
       <p class="mt-4 text-4xl font-extrabold">$1,500<span class="text-lg text-gray-500">/mo</span></p>
       <ul class="mt-4 space-y-2 text-gray-600 text-sm">
-        <li>✅ 24/7 voice receptionist</li>
         <li>✅ Unlimited calls</li>
+        <li>✅ 24/7 voice receptionist</li>
         <li>✅ Calendar booking integration</li>
         <li>✅ Email + SMS confirmations</li>
       </ul>
@@ -66,17 +88,15 @@
       {% endif %}
     </div>
 
-    <!-- Hybrid Plan -->
+    <!-- Hybrid -->
     <div class="p-6 bg-white border rounded-2xl shadow-sm">
       <h3 class="text-xl font-bold">Hybrid — Bundle</h3>
-      <p class="mt-2 text-gray-600">
-        $2,000 setup + $500/month base.<br>
-        <span class="font-semibold text-indigo-600">$30 per appointment</span> billed monthly.
-      </p>
+      <p class="mt-2 text-gray-600">$2,000 setup + $500/month base.<br>
+      <span class="font-semibold text-indigo-600">$30 per appointment</span> billed monthly.</p>
       <ul class="mt-4 space-y-2 text-gray-600 text-sm">
-        <li>✅ One-time $2,000 setup fee</li>
-        <li>✅ $500/month base subscription</li>
-        <li>✅ $30 per booked appointment (added monthly)</li>
+        <li>✅ One-time $2,000 setup</li>
+        <li>✅ $500/month base</li>
+        <li>✅ $30 per booked appointment</li>
         <li>✅ Includes scheduling + full voice AI</li>
       </ul>
       {% if STRIPE_HYBRID_URL %}
@@ -89,9 +109,90 @@
   </div>
 </section>
 
-<footer class="text-center text-sm text-gray-500 py-8">
-  © <span id="y"></span> {{ AGENCY_NAME }} — All rights reserved.
+<!-- Demo -->
+<section id="demo" class="bg-indigo-50 border-t">
+  <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+    <h2 class="text-3xl font-extrabold">See it in action</h2>
+    <p class="mt-3 text-gray-600">Book a free 15-minute demo and experience our AI receptionist live.</p>
+    {% if BOOK_DEMO_URL %}
+      <a href="{{ BOOK_DEMO_URL }}" class="mt-6 inline-block px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Book a Demo</a>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="max-w-6xl mx-auto px-4 py-20">
+  <h2 class="text-3xl font-extrabold text-center">What our clients say</h2>
+  <div class="mt-10 grid md:grid-cols-3 gap-6">
+    <div class="p-6 bg-white border rounded-2xl shadow-sm">
+      <p class="text-gray-600">“We cut missed calls to zero — patients love the fast booking.”</p>
+      <p class="mt-3 font-semibold">— Dental Clinic</p>
+    </div>
+    <div class="p-6 bg-white border rounded-2xl shadow-sm">
+      <p class="text-gray-600">“Way cheaper than hiring staff. The AI books into our calendar instantly.”</p>
+      <p class="mt-3 font-semibold">— Med Spa</p>
+    </div>
+    <div class="p-6 bg-white border rounded-2xl shadow-sm">
+      <p class="text-gray-600">“24/7 availability has been a game-changer for new leads.”</p>
+      <p class="mt-3 font-semibold">— Law Firm</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-white border-t">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-extrabold text-center">Frequently Asked Questions</h2>
+    <div class="mt-10 space-y-6">
+      <div>
+        <h3 class="font-bold">How does billing work?</h3>
+        <p class="text-gray-600">You’ll be billed automatically each month through Stripe. Usage charges ($30 per appointment) are added to your invoice.</p>
+      </div>
+      <div>
+        <h3 class="font-bold">What’s included in setup?</h3>
+        <p class="text-gray-600">We configure your AI agent, connect your calendar, and test your phone line integration.</p>
+      </div>
+      <div>
+        <h3 class="font-bold">Can it handle multiple staff calendars?</h3>
+        <p class="text-gray-600">Yes — we can route bookings to different providers or team members.</p>
+      </div>
+      <div>
+        <h3 class="font-bold">Is support included?</h3>
+        <p class="text-gray-600">Yes — email support is included, plus monitoring to ensure uptime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lead Form -->
+<section id="lead" class="bg-indigo-50 border-t">
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-extrabold">Tell us about your business</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="mt-4 space-y-2">
+          {% for c,m in messages %}
+            <div class="p-3 rounded-lg {{ "bg-green-50 border border-green-200 text-green-800" if c=="success" else "bg-red-50 border border-red-200 text-red-800" }}">{{ m }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <form class="mt-6 grid md:grid-cols-2 gap-4" method="POST" action="/lead">
+      <input class="border rounded-xl px-4 py-3" name="name" placeholder="Your Name" required/>
+      <input class="border rounded-xl px-4 py-3" type="email" name="email" placeholder="Your Email" required/>
+      <input class="border rounded-xl px-4 py-3" name="phone" placeholder="Phone"/>
+      <input class="border rounded-xl px-4 py-3" name="company" placeholder="Business / Company"/>
+      <textarea class="md:col-span-2 border rounded-xl px-4 py-3" name="message" rows="4" placeholder="What do you need help with?"></textarea>
+      <button class="md:col-span-2 px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Send</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center text-sm text-gray-500 py-8 border-t">
+  © <span id="y"></span> {{ AGENCY_NAME }} — All rights reserved. | Contact: {{ OWNER_EMAIL }}
 </footer>
 <script>document.getElementById("y").textContent = new Date().getFullYear()</script>
+
 </body>
 </html>
