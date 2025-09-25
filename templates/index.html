@@ -1,64 +1,97 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>{{ AGENCY_NAME }} — AI Receptionists & Automation</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head><body class="bg-gray-50 text-gray-900">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{{ AGENCY_NAME }} — AI Receptionists & Automation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
 <header class="sticky top-0 bg-white/80 backdrop-blur border-b">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <div class="font-extrabold text-xl">{{ AGENCY_NAME }}</div>
-    <nav class="space-x-3"><a href="#features" class="hover:underline">Features</a><a href="#pricing" class="hover:underline">Pricing</a><a href="#lead" class="hover:underline">Contact</a></nav>
+    <nav class="space-x-3">
+      <a href="#features" class="hover:underline">Features</a>
+      <a href="#pricing" class="hover:underline">Pricing</a>
+      <a href="#lead" class="hover:underline">Contact</a>
+    </nav>
   </div>
 </header>
+
 <section class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
   <div>
-    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Never miss a call again.<br> Your <span class="text-indigo-600">24/7 AI Receptionist</span>.</h1>
-    <p class="mt-4 text-lg text-gray-600">We answer every call, speak naturally, and book into your calendar.</p>
+    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+      Never miss a call again.<br>
+      Your <span class="text-indigo-600">24/7 AI Receptionist</span>.
+    </h1>
+    <p class="mt-4 text-lg text-gray-600">
+      We answer every call, speak naturally, and book directly into your calendar.
+    </p>
     <div class="mt-6 flex flex-wrap gap-3">
-      {% if BOOK_DEMO_URL %}<a href="{{ BOOK_DEMO_URL }}" class="px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Book a Demo</a>{% endif %}
+      {% if BOOK_DEMO_URL %}
+        <a href="{{ BOOK_DEMO_URL }}" class="px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Book a Demo</a>
+      {% endif %}
       <a href="#pricing" class="px-5 py-3 rounded-xl border font-semibold hover:bg-gray-100">See Pricing</a>
     </div>
   </div>
   <div class="bg-white border rounded-2xl p-6 shadow-sm">
-    <ul class="space-y-3 text-gray-700"><li>✅ Natural voice conversations</li><li>✅ Live calendar booking</li><li>✅ Lead capture + email confirms</li><li>✅ 24/7 availability</li></ul>
+    <ul class="space-y-3 text-gray-700">
+      <li>✅ Natural voice conversations</li>
+      <li>✅ Live calendar booking</li>
+      <li>✅ Lead capture + email confirms</li>
+      <li>✅ 24/7 availability</li>
+    </ul>
   </div>
 </section>
-<section id="features" class="bg-white border-y">
-  <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-3 gap-6">
-    <div class="p-6 border rounded-2xl"><h3 class="font-bold">Plug & Play</h3><p class="mt-2 text-gray-600">Twilio + n8n + AI voice.</p></div>
-    <div class="p-6 border rounded-2xl"><h3 class="font-bold">Calendars</h3><p class="mt-2 text-gray-6 00">Google/Outlook support.</p></div>
-    <div class="p-6 border rounded-2xl"><h3 class="font-bold">Support</h3><p class="mt-2 text-gray-600">Prompt tuning & monitoring.</p></div>
-  </div>
-</section>
+
 <section id="pricing" class="max-w-6xl mx-auto px-4 py-16">
   <h2 class="text-3xl font-extrabold text-center">Simple pricing</h2>
   <div class="mt-10 grid md:grid-cols-2 gap-6">
+
+    <!-- Monthly Plan -->
     <div class="p-6 bg-white border rounded-2xl shadow-sm">
       <h3 class="text-xl font-bold">AI Receptionist — Monthly</h3>
-      <p class="mt-2 text-gray-600">Predictable cost.</p>
+      <p class="mt-2 text-gray-600">Flat monthly fee with all core features included.</p>
       <p class="mt-4 text-4xl font-extrabold">$1,500<span class="text-lg text-gray-500">/mo</span></p>
-      {% if STRIPE_MONTHLY_URL %}<a href="{{ STRIPE_MONTHLY_URL }}" class="mt-6 inline-block px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Subscribe</a>{% else %}<a href="#lead" class="mt-6 inline-block px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Request Access</a>{% endif %}
+      <ul class="mt-4 space-y-2 text-gray-600 text-sm">
+        <li>✅ 24/7 voice receptionist</li>
+        <li>✅ Unlimited calls</li>
+        <li>✅ Calendar booking integration</li>
+        <li>✅ Email + SMS confirmations</li>
+      </ul>
+      {% if STRIPE_MONTHLY_URL %}
+        <a href="{{ STRIPE_MONTHLY_URL }}" class="mt-6 inline-block px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Subscribe</a>
+      {% else %}
+        <a href="#lead" class="mt-6 inline-block px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Request Access</a>
+      {% endif %}
     </div>
+
+    <!-- Hybrid Plan -->
     <div class="p-6 bg-white border rounded-2xl shadow-sm">
       <h3 class="text-xl font-bold">Hybrid — Bundle</h3>
-      <p class="mt-2 text-gray-600">$2,000 setup + $500/mo + $30/appointment.</p>
-      {% if STRIPE_HYBRID_URL %}<a href="{{ STRIPE_HYBRID_URL }}" class="mt-6 inline-block px-5 py-3 rounded-xl border font-semibold hover:bg-gray-100">Get Started</a>{% else %}<a href="#lead" class="mt-6 inline-block px-5 py-3 rounded-xl border font-semibold hover:bg-gray-100">Request Access</a>{% endif %}
+      <p class="mt-2 text-gray-600">
+        $2,000 setup + $500/month base.<br>
+        <span class="font-semibold text-indigo-600">$30 per appointment</span> billed monthly.
+      </p>
+      <ul class="mt-4 space-y-2 text-gray-600 text-sm">
+        <li>✅ One-time $2,000 setup fee</li>
+        <li>✅ $500/month base subscription</li>
+        <li>✅ $30 per booked appointment (added monthly)</li>
+        <li>✅ Includes scheduling + full voice AI</li>
+      </ul>
+      {% if STRIPE_HYBRID_URL %}
+        <a href="{{ STRIPE_HYBRID_URL }}" class="mt-6 inline-block px-5 py-3 rounded-xl border font-semibold hover:bg-gray-100">Get Started</a>
+      {% else %}
+        <a href="#lead" class="mt-6 inline-block px-5 py-3 rounded-xl border font-semibold hover:bg-gray-100">Request Access</a>
+      {% endif %}
     </div>
+
   </div>
 </section>
-<section id="lead" class="bg-white border-t">
-  <div class="max-w-3xl mx-auto px-4 py-14">
-    <h2 class="text-3xl font-extrabold">Tell us about your business</h2>
-    {% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="mt-4 space-y-2">{% for c,m in messages %}<div class="p-3 rounded-lg {{ "bg-green-50 border border-green-200 text-green-800" if c=="success" else "bg-red-50 border border-red-200 text-red-800" }}">{{ m }}</div>{% endfor %}</div>{% endif %}{% endwith %}
-    <form class="mt-6 grid md:grid-cols-2 gap-4" method="POST" action="/lead">
-      <input class="border rounded-xl px-4 py-3" name="name" placeholder="Your Name" required/>
-      <input class="border rounded-xl px-4 py-3" type="email" name="email" placeholder="Your Email" required/>
-      <input class="border rounded-xl px-4 py-3" name="phone" placeholder="Phone"/>
-      <input class="border rounded-xl px-4 py-3" name="company" placeholder="Business / Company"/>
-      <textarea class="md:col-span-2 border rounded-xl px-4 py-3" name="message" rows="4" placeholder="What do you need help with?"></textarea>
-      <button class="md:col-span-2 px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Send</button>
-    </form>
-  </div>
-</section>
-<footer class="text-center text-sm text-gray-500 py-8">© <span id="y"></span> {{ AGENCY_NAME }} — All rights reserved.</footer>
-<script>document.getElementById("y").textContent=new Date().getFullYear()</script>
-</body></html>
+
+<footer class="text-center text-sm text-gray-500 py-8">
+  © <span id="y"></span> {{ AGENCY_NAME }} — All rights reserved.
+</footer>
+<script>document.getElementById("y").textContent = new Date().getFullYear()</script>
+</body>
+</html>
