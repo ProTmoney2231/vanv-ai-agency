@@ -4,12 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{% block title %}Vanv AI Agency{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}">
+  <meta name="theme-color" content="#111827">
 </head>
 <body>
-  <header class="nav">
+  <header class="nav glass">
     <div class="container nav-inner">
-      <a class="brand" href="/"><img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="Logo"> <span>Vanv AI Agency</span></a>
+      <a class="brand" href="/">
+        <img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="" aria-hidden="true">
+        <span>Vanv AI Agency</span>
+      </a>
       <nav class="links">
         <a href="/#features">Features</a>
         <a href="/pricing">Pricing</a>
@@ -19,18 +26,36 @@
     </div>
   </header>
 
-  <main class="container">
+  {% block hero %}{% endblock %}
+  <main class="container main">
     {% block content %}{% endblock %}
   </main>
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div>&copy; {{ 2025 }} Vanv AI Agency</div>
+      <div class="foot-col">
+        <div class="brand b-inline">
+          <img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="" aria-hidden="true">
+          <span>Vanv AI Agency</span>
+        </div>
+        <p class="muted sm">AI receptionist & hybrid voice agent that books real appointments.</p>
+      </div>
       <div class="foot-links">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    // smooth-scroll for on-page anchors
+    document.querySelectorAll('a[href^="/#"],a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const href=a.getAttribute('href').replace('/','');
+        const el=document.querySelector(href);
+        if(el){ e.preventDefault(); window.scrollTo({top:el.offsetTop-80,behavior:'smooth'}); }
+      });
+    });
+  </script>
 </body>
 </html>

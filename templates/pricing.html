@@ -1,28 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Pricing — Vanv AI Agency{% endblock %}
 {% block content %}
-<h1>Simple pricing</h1>
+<h1 class="page-title">Simple pricing</h1>
 <div class="grid two">
-  <div class="card tall">
+  <div class="card plan">
+    <div class="badge">Popular</div>
     <h3>AI Receptionist — Monthly</h3>
-    <p class="muted">Predictable cost.</p>
-    <div class="price">$1,500<span>/mo</span></div>
+    <p class="muted">Predictable automation for busy practices.</p>
+    <div class="price xl">$1,500<span>/mo</span></div>
     <ul class="list">
-      <li>24/7 voice agent + chat bubble</li>
+      <li>24/7 voice agent + website chat</li>
       <li>Calendar booking & confirmations</li>
       <li>SMS/email reminders</li>
+      <li>Email support</li>
     </ul>
-    <a class="btn primary" href="{{ monthly_url }}">Subscribe</a>
+    <a class="btn primary block" href="{{ monthly_url }}">Subscribe</a>
   </div>
-  <div class="card tall">
+  <div class="card plan">
     <h3>Hybrid — Bundle</h3>
     <p class="muted">$2,000 setup + $500/mo + $30/appointment.</p>
     <ul class="list">
       <li>Everything in Monthly</li>
       <li>Per-appointment metered billing</li>
-      <li>Priority support + custom prompts</li>
+      <li>Priority support</li>
+      <li>Custom prompts/playbooks</li>
     </ul>
-    <a class="btn" href="{{ hybrid_url }}">Get Started</a>
+    <a class="btn block" href="{{ hybrid_url }}">Get Started</a>
   </div>
 </div>
 {% endblock %}
