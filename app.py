@@ -36,3 +36,15 @@ def not_found(e):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 10000)))
+
+@app.route("/book-demo", methods=["GET","POST"])
+def book_demo():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        date = request.form.get("date")
+        time = request.form.get("time")
+        # Here you can trigger n8n or send email
+        print(f"[DEMO REQUEST] {name} ({email}) at {date} {time}")
+        return render_template("demo_success.html")
+    return render_template("book_demo.html")

@@ -81,3 +81,9 @@ a{color:var(--white); text-decoration:none}
 @media (max-width:900px){
   .hero-inner{grid-template-columns:1fr; padding:56px 24px}
 }
+
+/* Forms */
+form.form{display:flex;flex-direction:column;gap:16px;padding:20px}
+form label{display:flex;flex-direction:column;font-weight:600;color:#e5e7eb;font-size:14px;gap:4px}
+form input{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:#0b1220;color:#fff}
+form input:focus{outline:2px solid var(--brand)}

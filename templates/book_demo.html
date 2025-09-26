@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Book a Demo — Vanv AI Agency{% endblock %}
+
+{% block content %}
+<section class="section">
+  <h1 class="page-title">Book a Demo</h1>
+  <p class="lead muted">Fill out the form below and our AI receptionist will confirm your slot automatically.</p>
+  <form method="POST" action="/book-demo" class="form card">
+    <label>
+      <span>Your Name</span>
+      <input type="text" name="name" required>
+    </label>
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" required>
+    </label>
+    <label>
+      <span>Preferred Date</span>
+      <input type="date" name="date" required>
+    </label>
+    <label>
+      <span>Preferred Time</span>
+      <input type="time" name="time" required>
+    </label>
+    <button type="submit" class="btn primary block">Request Demo</button>
+  </form>
+</section>
+{% endblock %}
