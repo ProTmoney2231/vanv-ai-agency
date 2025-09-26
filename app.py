@@ -29,3 +29,16 @@ def lead():
     flash("Thanks! We received your info." if ok else f"Lead send failed: {info}","success" if ok else "error")
     return redirect(url_for("home")+"#lead")
 if __name__=="__main__": app.run(host="0.0.0.0",port=int(os.getenv("PORT",5000)),debug=True)
+
+# ------------------------
+# Privacy & Terms routes
+# ------------------------
+from flask import render_template
+
+@app.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
+
+@app.route("/terms")
+def terms():
+    return render_template("terms.html")
