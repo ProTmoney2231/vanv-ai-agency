@@ -1,36 +1,33 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>{{ AGENCY_NAME }} — AI Receptionists & Automation</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
-</head>
-<body class="bg-gray-50 text-gray-900">
-
-<!-- Header -->
-<header class="sticky top-0 bg-white/80 backdrop-blur border-b">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <div class="flex items-center space-x-2">
-      <!-- Light logo (default) -->
-      <img src="/static/logo-light.svg" alt="Logo" class="h-8 block dark:hidden">
-      <!-- Dark logo (shown in dark mode) -->
-      <img src="/static/logo-dark.svg" alt="Logo" class="h-8 hidden dark:block">
-      <span class="font-extrabold text-xl">{{ AGENCY_NAME }}</span>
-    </div>
-    <nav class="space-x-3">
-      <a href="#features" class="hover:underline">Features</a>
-      <a href="#pricing" class="hover:underline">Pricing</a>
-      <a href="#demo" class="hover:underline">Book a Demo</a>
-      <a href="#faq" class="hover:underline">FAQ</a>
-    </nav>
+{% extends "base.html" %}
+{% block title %}Vanv AI Agency — AI Receptionist & Voice Agent{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>AI Receptionist & Hybrid Voice Agent</h1>
+  <p>Answer calls 24/7, qualify leads, and book appointments directly to your calendar.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="/pricing">See Pricing</a>
+    <a class="btn" href="{{ book_demo_url }}">Book a Demo</a>
   </div>
-</header>
+</section>
 
-<!-- Everything else stays the same -->
-{% include "body.html" %}
-<footer style="text-align:center; margin-top:40px; font-size:14px;"> 
-  <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p> 
-</footer></body>
-</html>
+<section id="features" class="grid three">
+  <div class="card">
+    <h3>24/7 Answering</h3>
+    <p>Never miss a call — your AI receptionist handles greetings, FAQs, and triage.</p>
+  </div>
+  <div class="card">
+    <h3>Live Calendar Booking</h3>
+    <p>Real-time availability checks and confirmed bookings into your calendar.</p>
+  </div>
+  <div class="card">
+    <h3>Payments & Follow-ups</h3>
+    <p>Optional deposits, SMS/email reminders, and no-show reduction flows.</p>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <h2>FAQ</h2>
+  <details><summary>Can it use my Google Calendar?</summary><p>Yes. We connect securely and only with explicit consent.</p></details>
+  <details><summary>Can you integrate other calendars?</summary><p>Yes — Outlook/Office365 and Cal.com are supported via n8n.</p></details>
+</section>
+{% endblock %}

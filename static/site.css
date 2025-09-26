@@ -1,0 +1,25 @@
+:root { --ink:#0f172a; --muted:#6b7280; --brand:#4f46e5; --bg:#f8fafc; --card:#fff; --line:#e5e7eb; }
+*{box-sizing:border-box} body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto}
+.container{max-width:980px;margin:0 auto;padding:24px}
+.nav{background:#fff;border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:10px;align-items:center;color:var(--ink);font-weight:700}
+.logo{width:28px;height:28px}
+.links a{margin-left:18px;color:var(--ink)}
+.links a:hover{color:var(--brand)}
+.hero{padding:40px 0}
+.cta-row{display:flex;gap:12px;margin-top:14px}
+.btn{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:8px}
+.btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+.grid{display:grid;gap:16px}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid.three{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card.tall{display:flex;flex-direction:column;gap:10px}
+.price{font-size:36px;font-weight:800}
+.price span{font-size:16px;font-weight:500;color:var(--muted)}
+.muted{color:var(--muted)}
+.list{padding-left:18px}
+.footer{margin-top:40px;border-top:1px solid var(--line);background:#fff}
+.footer-inner{display:flex;align-items:center;justify-content:space-between}
+.foot-links a{margin-left:16px}

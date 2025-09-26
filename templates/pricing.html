@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Pricing — Vanv AI Agency{% endblock %}
+{% block content %}
+<h1>Simple pricing</h1>
+<div class="grid two">
+  <div class="card tall">
+    <h3>AI Receptionist — Monthly</h3>
+    <p class="muted">Predictable cost.</p>
+    <div class="price">$1,500<span>/mo</span></div>
+    <ul class="list">
+      <li>24/7 voice agent + chat bubble</li>
+      <li>Calendar booking & confirmations</li>
+      <li>SMS/email reminders</li>
+    </ul>
+    <a class="btn primary" href="{{ monthly_url }}">Subscribe</a>
+  </div>
+  <div class="card tall">
+    <h3>Hybrid — Bundle</h3>
+    <p class="muted">$2,000 setup + $500/mo + $30/appointment.</p>
+    <ul class="list">
+      <li>Everything in Monthly</li>
+      <li>Per-appointment metered billing</li>
+      <li>Priority support + custom prompts</li>
+    </ul>
+    <a class="btn" href="{{ hybrid_url }}">Get Started</a>
+  </div>
+</div>
+{% endblock %}
