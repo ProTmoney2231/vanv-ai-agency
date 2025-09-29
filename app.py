@@ -48,3 +48,11 @@ def book_demo():
         print(f"[DEMO REQUEST] {name} ({email}) at {date} {time}")
         return render_template("demo_success.html")
     return render_template("book_demo.html")
+
+@app.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
+
+@app.route("/terms")
+def terms():
+    return render_template("terms.html")
