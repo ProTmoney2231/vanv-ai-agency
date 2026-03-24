@@ -1,104 +1,95 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vanv AI Agency — AI Receptionist, SMS Follow-Ups, and Calendar Booking</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}">
-  <style>
-    .compliance-box{
-      margin-top:18px;
-      padding:16px 18px;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:14px;
-      background:rgba(255,255,255,.03);
-      line-height:1.65;
-    }
-    .compliance-box strong{color:#fff;}
-    .small-note{font-size:.95rem; opacity:.92;}
-    .feature-copy{line-height:1.6;}
-  </style>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="/">Vanv AI Agency</a>
-      <nav>
-        <a href="/pricing">Pricing</a>
-        <a href="/terms">Terms</a>
-        <a href="/privacy">Privacy</a>
-      </nav>
+{% extends "base.html" %}
+{% block title %}Vanv AI Agency | AI Receptionist, Calendar Booking, SMS Confirmations{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-wrap">
+    <div>
+      <div class="eyebrow">AI receptionist • SMS follow-up • calendar booking</div>
+      <h1>AI Receptionist, Calendar Booking, SMS Confirmations, and Appointment Reminders</h1>
+      <p>
+        Vanv AI Agency helps service businesses answer calls, qualify leads, book appointments,
+        send SMS confirmations, send appointment reminders, and handle reschedules and cancellations.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/pricing">See Pricing</a>
+        <a class="btn btn-secondary" href="{{ book_demo_url }}">Book a Demo</a>
+      </div>
+      <div class="hero-points">
+        <span>Works with connected calendars</span>
+        <span>Appointment confirmations</span>
+        <span>Reminder texts</span>
+        <span>Reschedules and cancellations</span>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <section class="hero container">
-      <div class="hero-copy">
-        <h1>AI Receptionist, Calendar Booking, SMS Confirmations, and Appointment Reminders</h1>
-        <p class="lead">
-          Vanv AI Agency helps service businesses answer calls, qualify leads, book appointments,
-          send SMS confirmations, send appointment reminders, and handle reschedules and cancellations.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="/pricing">See Pricing</a>
-          <a class="btn btn-secondary" href="{{ book_demo_url }}">Book a Demo</a>
-        </div>
-
-        <div class="compliance-box">
-          <p><strong>How messaging works:</strong> Customers may receive SMS messages after they interact with the business, request service, or book an appointment.</p>
-          <p class="small-note">
-            Message types can include appointment confirmations, reminders, reschedule notices, cancellation notices, and follow-up updates.
-            Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help.
-          </p>
-        </div>
+    <div class="panel live-card">
+      <div class="live-pill">Live</div>
+      <h3>Next available slot</h3>
+      <p>Real-time availability check with direct booking into the connected calendar.</p>
+      <div class="slot-box">
+        <div class="slot-label">Example available time</div>
+        <div class="slot-time">Today, 2:30 PM</div>
       </div>
-
-      <div class="hero-card">
-        <h2>What the system does</h2>
-        <ul class="feature-copy">
-          <li>Answers inbound calls</li>
-          <li>Checks calendar availability</li>
-          <li>Books appointments directly into the connected calendar</li>
-          <li>Sends SMS confirmations and reminders</li>
-          <li>Handles reschedules and cancellations</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="container" style="margin-top:48px;">
-      <h2>Everything you need to turn calls into booked appointments</h2>
-      <div class="grid-3" style="margin-top:20px;">
-        <div class="card">
-          <h3>24/7 Answering</h3>
-          <p>Never miss a call. Your AI receptionist answers, qualifies, and routes inquiries.</p>
-        </div>
-        <div class="card">
-          <h3>Calendar Booking</h3>
-          <p>Real-time availability and direct booking into your connected calendar.</p>
-        </div>
-        <div class="card">
-          <h3>SMS Follow-Ups</h3>
-          <p>Confirmation texts, reminder texts, and appointment updates with opt-out support.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="container" style="margin-top:48px; margin-bottom:60px;">
-      <h2>Supported message examples</h2>
-      <div class="card" style="margin-top:20px;">
-        <p>“Hi {{'{{name}}'}}, your appointment is confirmed for {{'{{date}}'}} at {{'{{time}}'}}. Reply STOP to unsubscribe.”</p>
-        <p>“Reminder: You have an appointment tomorrow at {{'{{time}}'}}. Reply STOP to unsubscribe.”</p>
-        <p>“Your appointment has been rescheduled to {{'{{date}}'}} at {{'{{time}}'}}. Reply STOP to unsubscribe.”</p>
-        <p>“We received your request. Our team will follow up shortly. Reply STOP to unsubscribe.”</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>Vanv AI Agency</p>
-      <p><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></p>
+      <a class="btn btn-primary" style="width:100%" href="{{ book_demo_url }}">Book this time</a>
     </div>
-  </footer>
-</body>
-</html>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="info-callout highlight">
+      <p><strong>How messaging works:</strong> Customers may receive SMS messages after they interact with the business, request service, or book an appointment. Message types can include appointment confirmations, reminders, reschedule notices, cancellation notices, and follow-up updates. <strong>Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for help.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="kicker">What the system does</div>
+    <h2 class="section-title">Everything needed to turn calls into booked appointments</h2>
+    <p class="section-copy">Built for med spas and other service businesses that need reliable booking, messaging, and follow-up workflows without adding front-desk overhead.</p>
+
+    <div class="grid three-col">
+      <div class="card">
+        <div class="icon">☎</div>
+        <h3>24/7 Answering</h3>
+        <p>Answers inbound calls, captures lead details, and routes callers through the right booking flow.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📅</div>
+        <h3>Calendar Booking</h3>
+        <p>Checks live availability and books appointments directly into the connected calendar.</p>
+      </div>
+      <div class="card">
+        <div class="icon">✉</div>
+        <h3>SMS Follow-Ups</h3>
+        <p>Sends appointment confirmations, reminders, reschedule notices, cancellation notices, and follow-up updates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid two-col">
+      <div class="card quote">
+        <div class="quote-mark">“</div>
+        <p>We stopped missing calls overnight. Bookings went up immediately.</p>
+        <cite>Service business owner</cite>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Supported message examples</div>
+        <h2>Twilio-safe messaging language, clearly shown on-site</h2>
+        <div class="code-sample">“Hi {{name}}, your appointment is confirmed for {{date}} at {{time}}. Reply STOP to unsubscribe.”</div>
+        <div style="height:12px"></div>
+        <div class="code-sample">“Reminder: You have an appointment tomorrow at {{time}}. Reply STOP to unsubscribe.”</div>
+        <div style="height:12px"></div>
+        <div class="code-sample">“Your appointment has been rescheduled to {{date}} at {{time}}. Reply STOP to unsubscribe.”</div>
+        <div style="height:12px"></div>
+        <div class="code-sample">“We received your request. Our team will follow up shortly. Reply STOP to unsubscribe.”</div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,61 +1,43 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{% block title %}Vanv AI Agency{% endblock %}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="{% block description %}AI receptionist, calendar booking, SMS confirmations, appointment reminders, rescheduling, and cancellation workflows for service businesses.{% endblock %}">
   <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}">
-  <meta name="theme-color" content="#111827">
 </head>
 <body>
-  <header class="nav glass">
+  <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="/">
-        <img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="" aria-hidden="true">
+      <a href="/" class="brand">
+        <span class="brand-mark"><span>V</span></span>
         <span>Vanv AI Agency</span>
       </a>
-      <nav class="links">
-        <a href="/#features">Features</a>
+      <nav class="nav-links">
         <a href="/pricing">Pricing</a>
-        <a href="{{ book_demo_url if book_demo_url else '#' }}">Book a Demo</a>
-        <a href="/#faq">FAQ</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
       </nav>
+      <a class="nav-cta" href="{{ book_demo_url if book_demo_url is defined else '/' }}">Book a Demo</a>
     </div>
   </header>
 
-  {% block hero %}{% endblock %}
-  <main class="container main">
-    {% block content %}{% endblock %}
-  </main>
+  {% block content %}{% endblock %}
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="foot-col">
-        <div class="brand b-inline">
-          <img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="" aria-hidden="true">
-          <span>Vanv AI Agency</span>
-        </div>
-        <p class="muted sm">AI receptionist & hybrid voice agent that books real appointments.</p>
+      <div>
+        <div class="brand" style="font-size:1rem"><span class="brand-mark" style="width:34px;height:34px;border-radius:10px"><span>V</span></span><span>Vanv AI Agency</span></div>
+        <div class="small" style="margin-top:10px">AI receptionist, calendar booking, SMS confirmations, reminders, rescheduling, and cancellation workflows.</div>
       </div>
-      <div class="foot-links">
-        <a href="/privacy">Privacy Policy</a>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/pricing">Pricing</a>
         <a href="/terms">Terms of Service</a>
+        <a href="/privacy">Privacy Policy</a>
       </div>
     </div>
   </footer>
-
-  <script>
-    // smooth-scroll for on-page anchors
-    document.querySelectorAll('a[href^="/#"],a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        const href=a.getAttribute('href').replace('/','');
-        const el=document.querySelector(href);
-        if(el){ e.preventDefault(); window.scrollTo({top:el.offsetTop-80,behavior:'smooth'}); }
-      });
-    });
-  </script>
 </body>
 </html>

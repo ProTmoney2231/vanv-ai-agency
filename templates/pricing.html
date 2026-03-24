@@ -1,31 +1,42 @@
 {% extends "base.html" %}
-{% block title %}Pricing — Vanv AI Agency{% endblock %}
+{% block title %}Pricing | Vanv AI Agency{% endblock %}
 {% block content %}
-<h1 class="page-title">Simple pricing</h1>
-<div class="grid two">
-  <div class="card plan">
-    <div class="badge">Popular</div>
-    <h3>AI Receptionist — Monthly</h3>
-    <p class="muted">Predictable automation for busy practices.</p>
-    <div class="price xl">$1,500<span>/mo</span></div>
-    <ul class="list">
-      <li>24/7 voice agent + website chat</li>
-      <li>Calendar booking & confirmations</li>
-      <li>SMS/email reminders</li>
-      <li>Email support</li>
-    </ul>
-    <a class="btn primary block" href="{{ monthly_url }}">Subscribe</a>
+<section class="page-hero">
+  <div class="container">
+    <h1>Pricing built for real appointment volume</h1>
+    <p>Choose the plan that fits your business. Both options support AI receptionist workflows, calendar booking, and SMS appointment follow-ups.</p>
   </div>
-  <div class="card plan">
-    <h3>Hybrid — Bundle</h3>
-    <p class="muted">$2,000 setup + $500/mo + $30/appointment.</p>
-    <ul class="list">
-      <li>Everything in Monthly</li>
-      <li>Per-appointment metered billing</li>
-      <li>Priority support</li>
-      <li>Custom prompts/playbooks</li>
-    </ul>
-    <a class="btn block" href="{{ hybrid_url }}">Get Started</a>
+</section>
+
+<section class="section">
+  <div class="container pricing">
+    <div class="card price-card highlight">
+      <div class="badge">Most popular</div>
+      <h2>AI Receptionist — Monthly</h2>
+      <p style="margin:12px 0 18px;color:var(--muted)">Predictable cost, full automation.</p>
+      <div class="price">$1,500 <small>/mo</small></div>
+      <ul class="feature-list">
+        <li>24/7 AI receptionist</li>
+        <li>Calendar booking into connected calendar</li>
+        <li>SMS confirmations and reminders</li>
+        <li>Rescheduling and cancellation workflows</li>
+        <li>Lead capture and follow-up logging</li>
+      </ul>
+      <a class="btn btn-primary" style="width:100%" href="{{ monthly_url }}">Choose plan</a>
+    </div>
+
+    <div class="card price-card">
+      <h2>Hybrid — Bundle</h2>
+      <p style="margin:12px 0 18px;color:var(--muted)">$2,000 setup + $500/mo + $30/appointment.</p>
+      <ul class="feature-list">
+        <li>Lower monthly base cost</li>
+        <li>Appointment-based performance component</li>
+        <li>Calendar booking and SMS updates</li>
+        <li>Reschedule and cancel workflows</li>
+        <li>Good fit for performance-focused offers</li>
+      </ul>
+      <a class="btn btn-secondary" style="width:100%" href="{{ hybrid_url }}">Compare</a>
+    </div>
   </div>
-</div>
+</section>
 {% endblock %}
