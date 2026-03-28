@@ -26,3 +26,8 @@ def terms():
 @app.route("/privacy")
 def privacy():
     return render_template("privacy.html")
+
+
+@app.route('/compliance')
+def compliance():
+    return render_template('compliance.html')
