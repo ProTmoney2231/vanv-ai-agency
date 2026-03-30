@@ -1,35 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service | Vanv AI Agency</title>
-  <style>
-    :root{--bg:#071225;--card:#0f2146;--text:#eef4ff;--muted:#b6c7eb;--border:rgba(255,255,255,.12)}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top right,#10336d 0%,#071225 55%,#040b16 100%);color:var(--text)}.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}.card{background:linear-gradient(180deg,rgba(17,41,91,.95),rgba(10,21,45,.95));border:1px solid var(--border);border-radius:28px;padding:28px}h1,h2{margin:0 0 12px}p,li{color:var(--muted);line-height:1.65}a{color:#8db7ff}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Terms of Service — Vanv AI Agency</h1>
-      <p><strong>Last updated:</strong> March 28, 2026</p>
+{% extends "base.html" %}
+{% block title %}Terms of Service | Vanv AI Agency{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1>Terms of Service — Vanv AI Agency</h1>
+    <p>Last updated: March 28, 2026</p>
+  </div>
+</section>
+
+<section class="legal-wrap">
+  <div class="container">
+    <div class="card legal-card">
       <h2>Services</h2>
       <p>Vanv AI Agency LLC provides AI receptionist and scheduling tools that integrate with connected calendars, including Google Calendar through Cal.com, to book and manage appointments for medical spas, dental offices, clinics, and similar service businesses.</p>
+
       <h2>User responsibilities</h2>
       <ul>
         <li>You must provide accurate information when using our services.</li>
         <li>You are responsible for managing your own calendar, business rules, and permissions.</li>
         <li>You are responsible for ensuring you have permission to contact your customers.</li>
       </ul>
+
       <h2>SMS messaging program terms</h2>
       <p>By providing a phone number and opting in, customers agree to receive appointment-related text messages, including confirmations, reminders, reschedule notices, cancellation notices, and support follow-ups.</p>
       <p><strong>Message frequency varies. Message and data rates may apply. Reply STOP to opt out. Reply HELP for help.</strong></p>
       <p>Consent to receive SMS messages is not a condition of purchase. Carriers are not liable for delayed or undelivered messages.</p>
+
       <h2>Opt-in and opt-out</h2>
       <p>Users may opt in through a website form, by speaking with the AI receptionist, or during appointment booking and follow-up workflows where consent is collected. Users may opt out at any time by replying STOP.</p>
+
       <h2>Privacy</h2>
       <p>Use of the service is also governed by our <a href="/privacy">Privacy Policy</a>.</p>
+
+      <h2>Contact</h2>
+      <p>For support, email <a href="mailto:vanvaiagency@gmail.com">vanvaiagency@gmail.com</a>.</p>
     </div>
   </div>
-</body>
-</html>
+</section>
+{% endblock %}

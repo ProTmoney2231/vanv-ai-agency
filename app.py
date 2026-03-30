@@ -8,6 +8,11 @@ MONTHLY_URL = os.getenv("STRIPE_MONTHLY_URL", "#")
 HYBRID_URL  = os.getenv("STRIPE_HYBRID_URL",  "#")
 BOOK_DEMO_URL = os.getenv("BOOK_DEMO_URL", "mailto:" + OWNER_EMAIL)
 
+
+@app.context_processor
+def inject_site_vars():
+    return {"book_demo_url": BOOK_DEMO_URL}
+
 @app.route("/")
 def index():
     return render_template("index.html",

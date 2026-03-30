@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy | Vanv AI Agency</title>
-  <style>
-    :root{--bg:#071225;--card:#0f2146;--text:#eef4ff;--muted:#b6c7eb;--border:rgba(255,255,255,.12)}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top right,#10336d 0%,#071225 55%,#040b16 100%);color:var(--text)}.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}.card{background:linear-gradient(180deg,rgba(17,41,91,.95),rgba(10,21,45,.95));border:1px solid var(--border);border-radius:28px;padding:28px}h1,h2{margin:0 0 12px}p,li{color:var(--muted);line-height:1.65}a{color:#8db7ff}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Privacy Policy — Vanv AI Agency</h1>
-      <p><strong>Last updated:</strong> March 28, 2026</p>
+{% extends "base.html" %}
+{% block title %}Privacy Policy | Vanv AI Agency{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1>Privacy Policy — Vanv AI Agency</h1>
+    <p>Last updated: March 28, 2026</p>
+  </div>
+</section>
+
+<section class="legal-wrap">
+  <div class="container">
+    <div class="card legal-card">
       <h2>Who we are</h2>
       <p>Vanv AI Agency LLC provides AI receptionist, appointment booking, SMS confirmation, reminder, rescheduling, cancellation, and follow-up tools for medical spas, dental offices, clinics, and similar service businesses. For privacy questions, contact <a href="mailto:vanvaiagency@gmail.com">vanvaiagency@gmail.com</a>.</p>
+
       <h2>Information we collect</h2>
       <ul>
         <li>Name</li>
@@ -24,6 +23,7 @@
         <li>Message history related to bookings and customer support</li>
         <li>Business and calendar connection data needed to provide the service</li>
       </ul>
+
       <h2>How we use information</h2>
       <ul>
         <li>Book, confirm, reschedule, and cancel appointments</li>
@@ -32,18 +32,24 @@
         <li>Prevent errors, abuse, duplicate requests, and service misuse</li>
         <li>Maintain service reliability and logs</li>
       </ul>
+
       <h2>SMS and mobile information</h2>
       <p>If a customer provides a mobile number and consents to receive messages, we may send appointment-related SMS messages such as confirmations, reminders, reschedule notices, cancellation notices, and support follow-ups.</p>
       <p>Message frequency varies. Message and data rates may apply. Recipients can reply STOP to opt out and HELP for help.</p>
       <p><strong>Mobile opt-in data and consent will not be shared with third parties or affiliates for marketing or promotional purposes.</strong></p>
+
       <h2>How information is shared</h2>
       <p>We do not sell personal information. We may share data only with service providers that help us operate the platform, such as hosting, automation, messaging, calendar, and payment vendors, and only as needed to provide the service.</p>
+
       <h2>Google and calendar data</h2>
       <p>When authorized, we may access calendar data to read availability, create bookings, update bookings, and manage appointment records. We do not use calendar data for advertising or resale.</p>
+
       <h2>Data retention</h2>
       <p>We retain information only as long as needed to operate the service, comply with legal obligations, resolve disputes, and enforce agreements.</p>
+
       <h2>Security</h2>
       <p>We use reasonable administrative, technical, and organizational safeguards to protect information, but no method of transmission or storage is guaranteed to be completely secure.</p>
+
       <h2>Your choices</h2>
       <ul>
         <li>You may request access, correction, or deletion by emailing <a href="mailto:vanvaiagency@gmail.com">vanvaiagency@gmail.com</a>.</li>
@@ -52,5 +58,5 @@
       </ul>
     </div>
   </div>
-</body>
-</html>
+</section>
+{% endblock %}
