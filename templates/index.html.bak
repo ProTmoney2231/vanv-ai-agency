@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{{ AGENCY_NAME }} — AI Receptionists & Automation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<!-- Header -->
+<header class="sticky top-0 bg-white/80 backdrop-blur border-b">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-2">
+      <!-- Light logo (default) -->
+      <img src="/static/logo-light.svg" alt="Logo" class="h-8 block dark:hidden">
+      <!-- Dark logo (shown in dark mode) -->
+      <img src="/static/logo-dark.svg" alt="Logo" class="h-8 hidden dark:block">
+      <span class="font-extrabold text-xl">{{ AGENCY_NAME }}</span>
+    </div>
+    <nav class="space-x-3">
+      <a href="#features" class="hover:underline">Features</a>
+      <a href="#pricing" class="hover:underline">Pricing</a>
+      <a href="#demo" class="hover:underline">Book a Demo</a>
+      <a href="#faq" class="hover:underline">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Everything else stays the same -->
+{% include "body.html" %}
+</body>
+</html>

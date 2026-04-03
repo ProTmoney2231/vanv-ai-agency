@@ -1,0 +1,74 @@
+{
+  "name": "Cal.com Universal Booking (from Synthflow)",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "synthflow-cal-book",
+        "httpMethod": "POST",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "WebhookTrigger",
+      "name": "Webhook (Synthflow -> n8n)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [380, 300]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            { "name": "name", "value": "={{$json.body.name}}" },
+            { "name": "email", "value": "={{$json.body.lead_email}}" },
+            { "name": "phone", "value": "={{$json.body.phone}}" },
+            { "name": "service", "value": "={{$json.body.service}}" },
+            { "name": "reason", "value": "={{$json.body.reason}}" },
+            { "name": "notes", "value": "={{$json.body.notes}}" },
+            { "name": "start_utc", "value": "={{$json.body.start_time}}" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "Normalize",
+      "name": "Normalize Inputs",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [620, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.cal.com/v2/bookings",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "cal-api-version", "value": "2024-08-13" },
+            { "name": "Authorization", "value": "={{'Bearer ' + $env.CAL_API_KEY}}" }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "bodyParametersJson": "={\n  \"start\": $json.start_utc,\n  \"eventTypeId\": Number($env.CAL_EVENT_TYPE_ID),\n  \"attendee\": {\n    \"name\": $json.name,\n    \"email\": $json.email,\n    \"timeZone\": \"America/New_York\",\n    \"phoneNumber\": $json.phone\n  },\n  \"bookingFieldsResponses\": {\n    \"service\": $json.service,\n    \"reason\": $json.reason,\n    \"notes\": $json.notes\n  },\n  \"metadata\": {\n    \"booked_by\": \"Synthflow AI Receptionist\"\n  }\n}"
+      },
+      "id": "CreateBooking",
+      "name": "Cal.com - Create Booking",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [880, 300]
+    }
+  ],
+  "connections": {
+    "Webhook (Synthflow -> n8n)": {
+      "main": [[{ "node": "Normalize Inputs", "type": "main", "index": 0 }]]
+    },
+    "Normalize Inputs": {
+      "main": [[{ "node": "Cal.com - Create Booking", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "1"
+}

@@ -1,0 +1,108 @@
+{
+  "name": "VANV AI → Google Calendar (Production)",
+  "nodes": [
+    {
+      "id": "Webhook_Node",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 300],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "book",
+        "responseMode": "onReceived",
+        "responseData": "json",
+        "options": {},
+        "responseCode": 200
+      },
+      "webhookId": ""
+    },
+    {
+      "id": "Prep_Node",
+      "name": "Prepare Booking Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 300],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Normalize incoming data from Vapi and generate final calendar event data.\\n// Handles timezone reliably using luxon.\\nconst { DateTime } = require('luxon');\\nconst body = $json.body || $json || {};\\nconst rawTitle = body.title || body.appointment_title || body.summary || 'Appointment';\\nconst rawDescription = body.description || 'Booked automatically by VANV AI Receptionist.';\\nconst rawLocation = body.location || 'Online';\\nconst rawStart = body.start_time;\\nconst rawEnd = body.end_time;\\nif (!rawStart) throw new Error('Missing start_time in request body.');\\nfunction parseToLuxon(ts){ if(!ts)return null; let dt=DateTime.fromISO(ts,{setZone:true}); if(!dt.isValid){dt=DateTime.fromISO(ts,{zone:'America/Detroit'});} if(!dt.isValid){throw new Error('Invalid datetime provided: '+ts);} return dt;}\\nconst startLuxon=parseToLuxon(rawStart);\\nlet endLuxon=rawEnd?parseToLuxon(rawEnd):startLuxon.plus({hours:1});\\nconst startUtcIso=startLuxon.toUTC().toISO();\\nconst endUtcIso=endLuxon.toUTC().toISO();\\nconst startPretty=startLuxon.toFormat('yyyy-LL-dd HH:mm ZZZZ');\\nconst endPretty=endLuxon.toFormat('yyyy-LL-dd HH:mm ZZZZ');\\nconst tzName=startLuxon.zoneName;\\nreturn [{json:{title:rawTitle,description:rawDescription,location:rawLocation,start_time_iso:startUtcIso,end_time_iso:endUtcIso,start_time_local:startPretty,end_time_local:endPretty,timezone:tzName}}];"
+      }
+    },
+    {
+      "id": "Calendar_Node",
+      "name": "Create Google Calendar Event",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [800, 300],
+      "parameters": {
+        "calendar": "",
+        "start": "={{ $json[\"start_time_iso\"] }}",
+        "end": "={{ $json[\"end_time_iso\"] }}",
+        "useDefaultReminders": true,
+        "additionalFields": {
+          "summary": "={{ $json[\"title\"] }}",
+          "description": "={{ $json[\"description\"] }}",
+          "location": "={{ $json[\"location\"] }}"
+        }
+      },
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "Google Calendar account (to connect)",
+          "name": "Google Calendar account (to connect)"
+        }
+      }
+    },
+    {
+      "id": "Respond_Node",
+      "name": "Respond to Vapi",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1100, 300],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Build a clean response to send back to Vapi\\nconst bookingData = $items('Prepare Booking Data',0).json;\\nconst calendarResult = $json;\\nreturn [{json:{success:true,message:`Appointment booked: ${bookingData.title} on ${bookingData.start_time_local} (${bookingData.timezone})`,calendar_event_id:calendarResult.id||null,calendar_link:calendarResult.htmlLink||null,start_time_local:bookingData.start_time_local,end_time_local:bookingData.end_time_local,timezone:bookingData.timezone}}];"
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Prepare Booking Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Booking Data": {
+      "main": [
+        [
+          {
+            "node": "Create Google Calendar Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Google Calendar Event": {
+      "main": [
+        [
+          {
+            "node": "Respond to Vapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "timezone": "America/Detroit",
+    "saveExecutionProgress": true
+  },
+  "tags": ["production","vanv-ai"]
+}
