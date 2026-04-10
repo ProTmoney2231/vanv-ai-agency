@@ -1,5 +1,53 @@
 {% extends "base.html" %}
-{% block title %}Vanv AI Agency | AI Receptionist, Calendar Booking, SMS Confirmations{% endblock %}
+{% block title %}Vanv AI Agency | AI Receptionist, Calendar Booking, SMS Confirmations
+<!-- TWILIO_SMS_PROOF_START -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="card legal-card">
+      <div class="kicker">Website opt-in proof</div>
+      <h2>Request a demo</h2>
+      <p class="muted" style="margin-bottom:18px;">
+        This example web form shows how users provide explicit consent to receive appointment-related SMS messages.
+      </p>
+
+      <form action="{{ book_demo_url }}" method="get" target="_blank" rel="noreferrer" style="display:grid;gap:14px;max-width:760px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div>
+            <label for="demo_name" style="display:block;margin-bottom:6px;font-weight:700;">Full name</label>
+            <input id="demo_name" name="name" type="text" placeholder="Jane Smith" style="width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;">
+          </div>
+          <div>
+            <label for="demo_email" style="display:block;margin-bottom:6px;font-weight:700;">Email</label>
+            <input id="demo_email" name="email" type="email" placeholder="jane@email.com" style="width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;">
+          </div>
+        </div>
+
+        <div style="max-width:373px;">
+          <label for="demo_phone" style="display:block;margin-bottom:6px;font-weight:700;">Phone number</label>
+          <input id="demo_phone" name="phone" type="tel" placeholder="+1 555 555 5555" style="width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;">
+        </div>
+
+        <label style="display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.03);">
+          <input type="checkbox" name="sms_opt_in" style="margin-top:4px;transform:scale(1.15);">
+          <span class="muted" style="line-height:1.65;">
+            I agree to receive appointment-related SMS messages from <strong style="color:#fff;">Vanv AI Agency LLC</strong>,
+            including confirmations, reminders, reschedule updates, cancellation notices, and service follow-ups.
+            <strong style="color:#fff;">Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase.</strong>
+            View our <a href="/terms" style="color:#9dc3ff;text-decoration:underline;">Terms of Service</a> and
+            <a href="/privacy" style="color:#9dc3ff;text-decoration:underline;">Privacy Policy</a>.
+          </span>
+        </label>
+
+        <div>
+          <button type="submit" class="btn btn-primary">Continue to Demo Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- TWILIO_SMS_PROOF_END -->
+
+{% endblock %}
 {% block content %}
 <section class="hero">
   <div class="container hero-grid">
@@ -121,13 +169,52 @@
     </div>
   </div>
 </section>
-{% endblock %}
 
-<section style="max-width:800px;margin:40px auto;padding:20px;font-size:14px;color:#555;text-align:left;">
-  <h3>SMS Consent</h3>
-  <p>
-    By submitting your information, you agree to receive appointment-related text messages from Vanv AI Agency, including confirmations, reminders, rescheduling updates, and follow-up messages.
-    Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help. Consent is not a condition of purchase.
-  </p>
+<!-- TWILIO_SMS_PROOF_START -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="card legal-card">
+      <div class="kicker">Website opt-in proof</div>
+      <h2>Request a demo</h2>
+      <p class="muted" style="margin-bottom:18px;">
+        This example web form shows how users provide explicit consent to receive appointment-related SMS messages.
+      </p>
+
+      <form action="{{ book_demo_url }}" method="get" target="_blank" rel="noreferrer" style="display:grid;gap:14px;max-width:760px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div>
+            <label for="demo_name" style="display:block;margin-bottom:6px;font-weight:700;">Full name</label>
+            <input id="demo_name" name="name" type="text" placeholder="Jane Smith" style="width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;">
+          </div>
+          <div>
+            <label for="demo_email" style="display:block;margin-bottom:6px;font-weight:700;">Email</label>
+            <input id="demo_email" name="email" type="email" placeholder="jane@email.com" style="width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;">
+          </div>
+        </div>
+
+        <div style="max-width:373px;">
+          <label for="demo_phone" style="display:block;margin-bottom:6px;font-weight:700;">Phone number</label>
+          <input id="demo_phone" name="phone" type="tel" placeholder="+1 555 555 5555" style="width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;">
+        </div>
+
+        <label style="display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.03);">
+          <input type="checkbox" name="sms_opt_in" style="margin-top:4px;transform:scale(1.15);">
+          <span class="muted" style="line-height:1.65;">
+            I agree to receive appointment-related SMS messages from <strong style="color:#fff;">Vanv AI Agency LLC</strong>,
+            including confirmations, reminders, reschedule updates, cancellation notices, and service follow-ups.
+            <strong style="color:#fff;">Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase.</strong>
+            View our <a href="/terms" style="color:#9dc3ff;text-decoration:underline;">Terms of Service</a> and
+            <a href="/privacy" style="color:#9dc3ff;text-decoration:underline;">Privacy Policy</a>.
+          </span>
+        </label>
+
+        <div>
+          <button type="submit" class="btn btn-primary">Continue to Demo Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
+<!-- TWILIO_SMS_PROOF_END -->
 
+{% endblock %}
